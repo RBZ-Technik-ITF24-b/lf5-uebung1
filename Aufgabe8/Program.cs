@@ -2,11 +2,15 @@
 
 Console.WriteLine("Geben Sie eine Zahl ein");
 double input = Convert.ToDouble(Console.ReadLine());
-double sqrt = input;
+double sqrt = (input + 1) / 2, prev;
+
+Console.WriteLine($"{input}   {sqrt}");
 do
 {
-    sqrt = (1 / 2) * (sqrt + (input / sqrt));
+    prev = sqrt;
+    sqrt = 0.5 * (sqrt + (input / sqrt));
+    Console.WriteLine(sqrt);
 }
-while (true);
+while (Math.Abs(sqrt - prev) > 0.0001);
 
 Console.WriteLine(sqrt);
